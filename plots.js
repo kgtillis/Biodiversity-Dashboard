@@ -10,6 +10,9 @@ function init() {
           .text(sample)
           .property("value", sample);
       });
+
+      buildCharts();
+
   })}
   
   init();
@@ -21,7 +24,9 @@ function optionChanged(newSample) {
 // -- Displaying Charts on Load
 // -- Resource: https://www.bitdegree.org/learn/javascript-onload 
 function buildCharts() {
-  let loadValue = d3.select("#selDataset").property("value");
+  var loadValue = d3.select("#selDataset").property("value");
+
+  console.log(loadValue);
 
   buildMetadata(loadValue);
   
@@ -106,6 +111,7 @@ function buildMetadata(sample) {
       mode: 'markers',
       marker: {
         color: total_otu_ids,
+        colorscale: "Earth", 
         opacity: [1, 0.8, 0.6, 0.4],
         size: total_sample_values,
       }
